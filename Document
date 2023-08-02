@@ -1,0 +1,42 @@
+* In your project go to \android\app and make a folder keyStore.
+        
+////////////////////////////////////////////////////////////////////////////
+
+* Run This Commond in terminal -   keytool -genkey -v -keystore C:\Program Files\android\app\keyStore\keytool.jks  ^-storetype JKS -keyalg RSA - keysize 2048 -validity 10000 ^ -alias upload
+
+////////////////////////////////////////////////////////////////////////////////////
+        
+* After this commond you got key.jks file.
+        
+//////////////////////////////////////////////////////////////////////////////////
+        
+* In android folder make a key.properties file and add  key properties like this 
+        storeFile=Your keyStore.jks file path  
+       storePassword=re-type password
+       keyPassword=type password
+       keyAlias=Name
+
+////////////////////////////////////////////////////////////////////////////////
+        
+* Now go to the android app build.gradle and add this lines  -> 
+def keystoreProperties = new Properties()
+ def keystorePropertiesFile = rootProject.file('key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
+android {
+    signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+    } 
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+* Run commond - flutter build apk --release
+
+///////////////////////////////////////////////////////////////////////////////////////////
