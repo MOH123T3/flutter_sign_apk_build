@@ -1,1 +1,4 @@
-
+* Download jdk in your windows.
+* Open CMD. 
+* Go to the path  - C:\Program Files\Java\jdk-20\bin .
+* Add this commond - jarsigner -verify -verbose -certs "apk path \app-release.apk" 
