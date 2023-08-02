@@ -2,7 +2,10 @@
         
 ////////////////////////////////////////////////////////////////////////////
 
-* Run This Commond in terminal -   keytool -genkey -v -keystore C:\Program Files\android\app\keyStore\keytool.jks  ^-storetype JKS -keyalg RSA - keysize 2048 -validity 10000 ^ -alias upload
+* Open CMD. 
+* Go to the path  - C:\Program Files\Java\jdk-20\bin .
+* Add this commond  -   keytool -genkey -v -keystore C:\Program Files\android\app\keyStore\keytool.jks  ^-storetype JKS -keyalg RSA - keysize 2048 -validity 10000 ^ -alias upload
+* follow the steps 
 
 ////////////////////////////////////////////////////////////////////////////////////
         
